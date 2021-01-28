@@ -1,18 +1,23 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour
 {
 
     public float jumpForce = 10f;
+    public string currentColor;
 
     public Rigidbody2D rb;
-    public string currentColor;
+    public SpriteRenderer sr;
+
+    public Color colorCyan;
+    public Color colorYellow;
+    public Color colorMagenta;
+    public Color colorPink;
 
     public void Start()
     {
-        
+        SetRandomColor();
     }
 
     public void Update()
@@ -25,26 +30,33 @@ public class Player : MonoBehaviour
     
     public void OnTriggerEnter2D(Collider2D self)
     {
-        SetRandomColor();
+        if (self.tag != currentColor)
+        {
+            Debug.Log("Game Over");
+        }
     }
 
     private void SetRandomColor()
     {
-        var index = Random.Range(0, 3);
+        var index = Random.Range(0, 4);
 
         switch (index) 
         {
             case 0:
                 currentColor = "Cyan";
+                sr.color = colorCyan;
                 break;
             case 1:
                 currentColor = "Yellow";
+                sr.color = colorYellow;
                 break;
             case 2:
                 currentColor = "Magenta";
+                sr.color = colorMagenta;
                 break;
             case 3:
                 currentColor = "Pink";
+                sr.color = colorPink;
                 break;
         }
     }
