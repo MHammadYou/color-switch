@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour
         if (self.tag != currentColor)
         {
             Debug.Log("Game Over");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
