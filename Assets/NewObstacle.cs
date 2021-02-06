@@ -10,15 +10,28 @@ public class NewObstacle : MonoBehaviour
     
     public GameObject colorChanger;
 
+    private float height = 13;
+
     void Start()
     {
-        Debug.Log(GetRandomObstacle());
+        AddObstacle();
+        
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void AddObstacle()
     {
-        
+        for (int i = 1; i < 6; i++)
+        {
+            GameObject newObstacle = GetRandomObstacle();
+            Vector3 newObstaclePos = newObstacle.transform.position;
+
+            Instantiate(colorChanger, new Vector3(0, height - 5, 0), Quaternion.identity);
+            Instantiate(newObstacle, new Vector3(newObstaclePos.x, height, newObstaclePos.z), Quaternion.identity);
+            height += 10;
+        }
+
+
     }
 
     private GameObject GetRandomObstacle()
@@ -45,4 +58,4 @@ public class NewObstacle : MonoBehaviour
     }
     
 
-}
+} 
