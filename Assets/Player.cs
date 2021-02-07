@@ -52,20 +52,48 @@ public class Player : MonoBehaviour
         switch (index) 
         {
             case 0:
-                currentColor = "Cyan";
-                sr.color = colorCyan;
+                if (currentColor.Equals("Cyan"))
+                {
+                    SetRandomColor();
+                }
+                else
+                {
+                    currentColor = "Cyan";
+                    sr.color = colorCyan;
+                }
                 break;
             case 1:
-                currentColor = "Yellow";
-                sr.color = colorYellow;
+                if (currentColor.Equals("Yellow"))
+                {
+                    SetRandomColor();
+                }
+                else
+                {
+                    currentColor = "Yellow";
+                    sr.color = colorYellow;    
+                }
                 break;
             case 2:
-                currentColor = "Magenta";
-                sr.color = colorMagenta;
+                if (currentColor.Equals("Magenta"))
+                {
+                    SetRandomColor();
+                }
+                else
+                {
+                    currentColor = "Magenta";
+                    sr.color = colorMagenta;                    
+                }
                 break;
             case 3:
-                currentColor = "Pink";
-                sr.color = colorPink;
+                if (currentColor.Equals("Pink"))
+                {
+                    SetRandomColor();
+                }
+                else
+                {
+                    currentColor = "Pink";
+                    sr.color = colorPink;   
+                }
                 break;
         }
     }

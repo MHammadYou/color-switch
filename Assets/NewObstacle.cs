@@ -1,7 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class NewObstacle : MonoBehaviour
 {
+
+    public GameObject player;
 
     public GameObject smallCircle;
     public GameObject mediumCircle;
@@ -10,28 +14,41 @@ public class NewObstacle : MonoBehaviour
     
     public GameObject colorChanger;
 
-    private float height = 13;
+    
+    private Queue<GameObject> currentObstacles = new Queue<GameObject>();
+    
+    private float _height = 11;
 
     void Start()
     {
-        AddObstacle();
-        
+        for (var i = 0; i < 3; i++)
+        {
+            GameObject newObstacle = AddObstacle();
+            currentObstacles.Enqueue(newObstacle);
+        }
     }
 
-
-    void AddObstacle()
+    void Update()
     {
-        for (int i = 1; i < 6; i++)
+        GameObject bottomObstacle = currentObstacles.Peek();
+
+        if (player.transform.position.y > bottomObstacle.transform.position.y + 10)
         {
-            GameObject newObstacle = GetRandomObstacle();
-            Vector3 newObstaclePos = newObstacle.transform.position;
-
-            Instantiate(colorChanger, new Vector3(0, height - 5, 0), Quaternion.identity);
-            Instantiate(newObstacle, new Vector3(newObstaclePos.x, height, newObstaclePos.z), Quaternion.identity);
-            height += 10;
+            currentObstacles.Dequeue();
+            Destroy(bottomObstacle);
+            currentObstacles.Enqueue(AddObstacle());
         }
+    }
 
+    GameObject AddObstacle()
+    {
+        GameObject newObstacle = GetRandomObstacle();
+        Vector3 newObstaclePos = newObstacle.transform.position;
 
+        Instantiate(colorChanger, new Vector3(0, _height - 4, 0), Quaternion.identity);
+        GameObject obstacle = Instantiate(newObstacle, new Vector3(newObstaclePos.x, _height, newObstaclePos.z), Quaternion.identity);
+        _height += 8;
+        return obstacle;
     }
 
     private GameObject GetRandomObstacle()
