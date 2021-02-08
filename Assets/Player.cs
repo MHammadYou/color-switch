@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-
+    public GameObject player;
     public float jumpForce = 10f;
     public string currentColor;
 
@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     public Color colorMagenta;
     public Color colorPink;
 
+    private bool _gravityFuncCalled = false;
+
     public void Start()
     {
         SetRandomColor();
@@ -26,7 +28,19 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
         {
             rb.velocity = Vector2.up * jumpForce;
+
+            if (!_gravityFuncCalled)
+            {
+                SetPlayerGravity();
+            }
         }
+
+    }
+
+    private void SetPlayerGravity()
+    {
+        player.GetComponent<Rigidbody2D>().gravityScale = 3;
+        _gravityFuncCalled = true;
     }
     
     public void OnTriggerEnter2D(Collider2D self)
@@ -97,5 +111,4 @@ public class Player : MonoBehaviour
                 break;
         }
     }
-
 }

@@ -231,6 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f47761e5ebf3741bf38df2af9021c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1041783480}
   smallCircle: {fileID: 7115409903490332374, guid: b51bf9ecc1e4f0543b37b74cafbb302f,
     type: 3}
   mediumCircle: {fileID: 5757942837280409505, guid: 29330eb525a926e4a89bc32ac32be54a,
@@ -273,6 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce4cc50b63089f43a98c64712894ad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1041783480}
   jumpForce: 10
   currentColor: 
   rb: {fileID: 1041783485}
@@ -376,7 +378,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
