@@ -13,6 +13,7 @@ public class NewObstacle : MonoBehaviour
     public GameObject windMill;
     
     public GameObject colorChanger;
+    public GameObject pointStar;
 
     
     private Queue<GameObject> currentObstacles = new Queue<GameObject>();
@@ -46,6 +47,7 @@ public class NewObstacle : MonoBehaviour
         Vector3 newObstaclePos = newObstacle.transform.position;
 
         Instantiate(colorChanger, new Vector3(0, _height - 4, 0), Quaternion.identity);
+        Instantiate(pointStar, new Vector3(0, _height, 0), Quaternion.identity);
         GameObject obstacle = Instantiate(newObstacle, new Vector3(newObstaclePos.x, _height, newObstaclePos.z), Quaternion.identity);
         _height += 8;
         return obstacle;
