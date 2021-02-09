@@ -54,8 +54,13 @@ public class Player : MonoBehaviour
         
         if (self.tag != currentColor)
         {
-            Debug.Log("Game Over");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            // Just a quick fix to stop collisions with Star
+            if (!(self.tag == "PointStar"))
+            {
+                Debug.Log("Game Over");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);    
+            }
+            
         }
     }
 
