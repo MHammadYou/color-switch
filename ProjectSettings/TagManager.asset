@@ -9,6 +9,7 @@ TagManager:
   - Magenta
   - Pink
   - ColorChanger
+  - PointStar
   layers:
   - Default
   - TransparentFX
