@@ -75,6 +75,4 @@ public class NewObstacle : MonoBehaviour
         }
         return obstacle;
     }
-    
-
 } 
