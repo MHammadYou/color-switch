@@ -1,7 +1,8 @@
-# color-switch
+# Color Switch
 
-Browser Based Color Switch Replica with C#, Unity and Web Assembly
+**Browser Based Color Switch Replica with C#, Unity and Web Assembly**
 
 Deployment:
-\
-https://color-switch-replica.netlify.app/
+>```
+>https://color-switch-replica.netlify.app
+>```
